@@ -33,6 +33,13 @@ jobs:
     - name: Run 
       run: |
         python scholar-count.py
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add citations.json h-index.json i10-index.json
+        git commit -m "Update JSON files"
+        git push
     - name: Display JSON files
       run: |
         cat citations.json
